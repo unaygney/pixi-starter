@@ -23,8 +23,6 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "extra-watch-webpack-plugin": "^1.0.3",
-    "pixi.js": "^8.1.0",
-    "webpack-watch-external-files-plugin": "^3.0.0"
+    "pixi.js": "^8.1.0"
   }
 }
