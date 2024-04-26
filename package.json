@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open --live-reload"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,8 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "pixi.js": "^8.1.0"
+    "extra-watch-webpack-plugin": "^1.0.3",
+    "pixi.js": "^8.1.0",
+    "webpack-watch-external-files-plugin": "^3.0.0"
   }
 }

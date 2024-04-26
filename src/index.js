@@ -1,23 +1,24 @@
-// import * as PIXI from "pixi.js";
+import { Application, Sprite, Assets } from "pixi.js";
 
-// // Renderer oluşturun
-// const renderer = new PIXI.Renderer({
-//   width: 800,
-//   height: 600,
-//   backgroundColor: 0x1099bb,
-// });
+document.addEventListener("DOMContentLoaded", async () => {
+  const pixiContainer = document.getElementById("pixi-container");
+  const app = new Application();
 
-// // View'ı belirtilen div'e yerleştirin
-// document.getElementById("pixi-container").appendChild(renderer.view);
+  await app.init({ background: "#1099bb", resizeTo: pixiContainer });
+  pixiContainer.appendChild(app.canvas);
 
-// // Ticker ve stage oluşturun
-// const stage = new PIXI.Container();
-// const ticker = new PIXI.Ticker();
+  const texture = await Assets.load("https://pixijs.com/assets/bunny.png");
 
-// // Ticker'a bir güncelleme fonksiyonu ekleyin
-// ticker.add(() => {
-//   renderer.render(stage);
-// });
+  const bunny = new Sprite(texture);
 
-// // Ticker'ı başlatın
-// ticker.start();
+  app.stage.addChild(bunny);
+
+  bunny.anchor.set(0.5);
+
+  bunny.x = app.screen.width / 2;
+  bunny.y = app.screen.height / 2;
+
+  app.ticker.add((time) => {
+    bunny.rotation += 0.1 * time.deltaTime;
+  });
+});
